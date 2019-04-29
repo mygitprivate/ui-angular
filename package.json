@@ -8,9 +8,8 @@
     "build-prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build-css": "node-sass -w ./src -o ./src/scss/css"
-  },
+    "e2e": "ng e2e"
+    },
   "private": true,
   "dependencies": {
     "@agm/core": "^1.0.0-beta.3",
@@ -63,7 +62,7 @@
     "lodash-decorators": "^4.5.0",
     "lodash-es": "^4.17.4",
     "ng-fullcalendar": "^1.6.2",
-    "ng2-bootstrap-typeahead": "^2.0.4",
+   
     "ng2-ion-range-slider": "^2.0.0",
     "ngx-gallery": "^5.9.1",
     "ngx-highlightjs": "^2.1.4",
