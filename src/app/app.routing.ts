@@ -295,7 +295,7 @@ const routes: Routes = [
   { path: 'dashboard', component: EDashboardComponent },
   { path: 'layout', component: ELayoutComponent },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'translate', component: ETranslationComponent },
+ 
   
 ];
 

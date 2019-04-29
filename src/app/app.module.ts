@@ -20,7 +20,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
 import {ScrollingModule,ScrollDispatchModule} from '@angular/cdk/scrolling';
 import { environment } from '../environments/environment';
 // import {  I18nComponent } from './angular-components/basic-components/e-mat-language-switch/i18n/i18n.component';
-import { El10nModule } from './e-l10n/el10n.module';
+//import { El10nModule } from './e-l10n/el10n.module';
 
 @NgModule({
   declarations: [
@@ -42,19 +42,14 @@ import { El10nModule } from './e-l10n/el10n.module';
     PersistenceModule,
     ScrollDispatchModule,
     ScrollingModule,
-    LocalizationModule.forRoot(l10nConfig),
-    LocaleSeoModule.forRoot(),
-    LocaleValidationModule.forRoot(),
+   // LocalizationModule.forRoot(l10nConfig),
+   // LocaleSeoModule.forRoot(),
+   // LocaleValidationModule.forRoot(),
     NgxPayPalModule,
-    El10nModule
+//El10nModule
   ],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initL10n,
-      deps: [L10nLoader],
-      multi: true
-    }
+    
 ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
