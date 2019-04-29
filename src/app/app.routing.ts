@@ -2,8 +2,8 @@ import { Routes, RouterModule } from "@angular/router";
 import { EDashboardComponent, ELayoutComponent } from './e-modules/index';
 import { ModuleWithProviders } from "@angular/core";
 
-import { ETranslationComponent } from './e-translation/e-translation.component';
-import { AppLangComponent } from './e-l10n/applang.component';
+//import { ETranslationComponent } from './e-translation/e-translation.component';
+//import { AppLangComponent } from './e-l10n/applang.component';
 import {
   EMatDatePickerComponent, EMatTimepickerComponent,
   EMatSpinnerComponent, EMatTabsComponent,
@@ -285,9 +285,7 @@ const routes: Routes = [
 { path: 'payment-Gateway', component: ELayoutComponent,children:[
   {path: '', component:PaypalgatewayComponent , outlet: 'basic', data: { name: 'Payment Gateway', type : 'Materials' }}
 ]},
-{ path: 'language-Switch', component: ELayoutComponent,children:[
-  {path: '', component:AppLangComponent , outlet: 'basic', data: { name: 'Payment Gateway', type : 'Materials' }}
-]},
+
  
 
 // {path:'list', loadChildren:'./list/list.module#ListModule'},
