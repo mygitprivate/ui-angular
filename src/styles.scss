@@ -133,3 +133,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 // .side_nav{
 //   width:300px;
 // }
+mat-card.pointer.dashboard_card.mat-card:hover{
+  background: #fff !important;
+  transition-duration: 0.3s;
+  transform: scale(1.05);
+  box-shadow: 5px 5px 5px #aeaeae!important;
+}
+.childNode[_ngcontent-c2]{
+  cursor: pointer !important;
+}

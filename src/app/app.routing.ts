@@ -3,7 +3,7 @@ import { EDashboardComponent, ELayoutComponent } from './e-modules/index';
 import { ModuleWithProviders } from "@angular/core";
 
 import { ETranslationComponent } from './e-translation/e-translation.component';
-
+import { AppLangComponent } from './e-l10n/applang.component';
 import {
   EMatDatePickerComponent, EMatTimepickerComponent,
   EMatSpinnerComponent, EMatTabsComponent,
@@ -22,8 +22,9 @@ import {
   EMatSortTableComponent,EMatStepperComponent,
   EMatIconsComponent, EMatRegisterComponent,
   EMatForgotComponent, EMatCrudTableComponent,
-  EMatDragDropComponent,EMatVirtualScrollComponent,EMatLanguageSwitchComponent
+  EMatDragDropComponent,EMatVirtualScrollComponent,PaypalgatewayComponent
 } from './angular-components/basic-components/index';
+import { El10nModule } from './e-l10n/el10n.module';
 
 
 const routes: Routes = [
@@ -214,7 +215,7 @@ const routes: Routes = [
       }
   ]
  },
- { path: 'fileupload', component: ELayoutComponent, children: [
+ { path: 'file-Upload', component: ELayoutComponent, children: [
   {
    path: '', component:EMatFileUploadComponent , outlet: 'basic', data: { name: 'File Upload', type : 'Custom' }
    }
@@ -278,14 +279,24 @@ const routes: Routes = [
 { path: 'virtual-Scrolling', component: ELayoutComponent,children:[
    {path: '', component:EMatVirtualScrollComponent , outlet: 'basic', data: { name: 'Virtual Scrolling', type : 'Materials' }}
 ]},
-{ path: 'language-Switch', component: ELayoutComponent,children:[
-  {path: '', component:EMatLanguageSwitchComponent , outlet: 'basic', data: { name: 'Language Switch', type : 'Materials' }}
+// { path: 'language-Switch', component: ELayoutComponent,children:[
+//   {path: '', component:EMatLanguageSwitchComponent , outlet: 'basic', data: { name: 'Language Switch', type : 'Materials' }}
+// ]},
+{ path: 'payment-Gateway', component: ELayoutComponent,children:[
+  {path: '', component:PaypalgatewayComponent , outlet: 'basic', data: { name: 'Payment Gateway', type : 'Materials' }}
 ]},
+{ path: 'language-Switch', component: ELayoutComponent,children:[
+  {path: '', component:AppLangComponent , outlet: 'basic', data: { name: 'Payment Gateway', type : 'Materials' }}
+]},
+ 
 
+// {path:'list', loadChildren:'./list/list.module#ListModule'},
+// { path: 'list', loadChildren: './angular-components' }, 
   { path: 'dashboard', component: EDashboardComponent },
   { path: 'layout', component: ELayoutComponent },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  // { path: 'translate', component: ETranslationComponent },
+  { path: 'translate', component: ETranslationComponent },
+  
 ];
 
 export const appRoutes: ModuleWithProviders = RouterModule.forRoot(routes);

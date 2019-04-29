@@ -7,8 +7,8 @@ import {EShareDataService} from '../../../e-shared/e-sharedata.service'
   templateUrl: './e-mat-file-upload.component.html',
   styleUrls: ['./e-mat-file-upload.component.scss']
 })
-export class EMatFileUploadComponent {
-  photoFormData:FormData
+export class EMatFileUploadComponent implements OnInit {
+  photoFormData:FormData;
   code:any;
   constructor(private eShareDataService : EShareDataService) { }
   ngOnInit() {
@@ -19,5 +19,6 @@ export class EMatFileUploadComponent {
     this.photoFormData = new FormData();
     this.photoFormData.append("multiPartFile", files[0]);
     this.photoFormData.append("uploadType", "PROFILE_PICTURE");
+     
   }
 }

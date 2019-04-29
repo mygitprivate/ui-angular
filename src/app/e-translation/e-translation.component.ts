@@ -41,11 +41,11 @@ export class ETranslationComponent implements OnInit {
     }
 
     send() {
-        forkJoin([this.yandexService.translate(this.enText, 'ar'),this.yandexService.translate(this.enDescription, 'ar')]).subscribe(
+        forkJoin([this.yandexService.translate(this.enText, 'ar'), this.yandexService.translate(this.enDescription, 'ar')]).subscribe(
             (result: any) => {
                 this.arText = result[0].text[0];
                 this.arDescription = result[1].text[0];
             }
         );
-      }
+    }
 }

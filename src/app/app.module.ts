@@ -15,10 +15,12 @@ import {MyNavComponent} from './my-nav/my-nav.component';
 import { NguiAutoCompleteModule } from '@ngui/auto-complete';
 import { RouteGuardModule } from './angular-components/basic-components/route-guard/route-guard.module';
 import { NgxGalleryModule } from 'ngx-gallery';
+// import { NgxPayPalModule } from 'ngx-paypal';
+import { NgxPayPalModule } from 'ngx-paypal';
 import {ScrollingModule,ScrollDispatchModule} from '@angular/cdk/scrolling';
 import { environment } from '../environments/environment';
 // import {  I18nComponent } from './angular-components/basic-components/e-mat-language-switch/i18n/i18n.component';
-/*
+import { El10nModule } from './e-l10n/el10n.module';
 import {
   L10nConfig,
   L10nLoader,
@@ -30,6 +32,7 @@ import {
   ISOCode,
   LogLevel
 } from 'angular-l10n';
+// import { I18nComponent } from './i18n/i18n.component';
 
 const l10nConfig: L10nConfig = {
     logger: {
@@ -48,7 +51,7 @@ const l10nConfig: L10nConfig = {
     },
     translation: {
         providers: [
-            { type: ProviderType.Static, prefix: './assets/locale-' }
+            { type: ProviderType.Static, prefix:'../assets/locale-'}
         ],
         caching: true,
         version: '7.0.0',
@@ -72,10 +75,10 @@ const l10nConfig: L10nConfig = {
         ]
     }
 };
-
+// Advanced initialization.
 export function initL10n(l10nLoader: L10nLoader): Function {
   return () => l10nLoader.load();
-}*/
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,15 +98,20 @@ export function initL10n(l10nLoader: L10nLoader): Function {
     NgxGalleryModule,
     PersistenceModule,
     ScrollDispatchModule,
-    ScrollingModule
+    ScrollingModule,
+    LocalizationModule.forRoot(l10nConfig),
+    LocaleSeoModule.forRoot(),
+    LocaleValidationModule.forRoot(),
+    NgxPayPalModule,
+    El10nModule
   ],
   providers: [
-    // {
-    //     provide: APP_INITIALIZER,
-    //     useFactory: initL10n,
-    //     deps: [L10nLoader],
-    //     multi: true
-    // }
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initL10n,
+      deps: [L10nLoader],
+      multi: true
+    }
 ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]

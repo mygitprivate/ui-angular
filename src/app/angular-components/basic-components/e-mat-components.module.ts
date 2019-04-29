@@ -34,14 +34,16 @@ import {
   EMatCrudTableComponent,
   EMatDragDropComponent,
   EMatVirtualScrollComponent,
-  EMatLanguageSwitchComponent
-
+  EMatLanguageSwitchComponent,
+  PaypalgatewayComponent
+  
   // RouteGuardComponent
 } from './index';
 import * as SurveyEditor from 'surveyjs-editor';
 import * as Survey from 'survey-angular';
 
 import {EventSesrvice} from './e-calender/events.service';
+
 
 
 @NgModule({
@@ -90,7 +92,9 @@ import {EventSesrvice} from './e-calender/events.service';
    EMatCrudTableComponent,
    EMatDragDropComponent,
    EMatVirtualScrollComponent,
-   EMatLanguageSwitchComponent
+   EMatLanguageSwitchComponent,
+   PaypalgatewayComponent
+    
     // RouteGuardComponent
     ],
     entryComponents: [EMatDialogComponent, EMatDialogPopupComponent],

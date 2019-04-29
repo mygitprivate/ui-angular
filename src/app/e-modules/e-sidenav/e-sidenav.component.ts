@@ -4,10 +4,10 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { BehaviorSubject, Observable, of as observableOf } from 'rxjs';
-import { Routes, RouterModule, Router, NavigationStart,NavigationEnd ,ActivatedRoute} from '@angular/router';
+import { Routes, RouterModule, Router, NavigationStart, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { MatSidenav } from '@angular/material';
-import {FormControl} from '@angular/forms';
-import {ComponentList} from '../e-dashboard/component-list';
+import { FormControl } from '@angular/forms';
+import { ComponentList } from '../e-dashboard/component-list';
 /**
  * File node data with nested structure.
  * Each node has a filename, and a type or a list of children.
@@ -29,74 +29,80 @@ export class FileFlatNode {
  * The file structure tree data in string. The data could be parsed into a Json object
  */
 const TREE_DATA = JSON.stringify({
-  Apps:{
-                'calendar' : 'calendar',
-                'charts':'charts',
-                'dashboard':'dashboard',
-                'feedbackForms':'feedbackForms',
-                'icons':'icons',
-                'language-Switch': 'language-Switch',
-                'pagination':'pagination',
-              'shoppingCart':'shoppingCart',
-              'social-Media':'social-Media',
-              'spreadSheets':'spreadSheets',
-            'survayForms':'survayForms',
-             'virtualScrolling':'virtualScrolling',
-           },
-  Authentication:{
-            'forgot':'forgot',
-             'login':'login',
-          'register':'register',
+  Apps: {
+
+    'charts': 'charts',
+    'dashboard': 'dashboard',
+    'icons': 'icons',
+    'image-Gallery': 'image-Gallery',
+    'language-Switch': 'language-Switch',
+    'payment-Gateway': 'payment-Gateway',
+    'shoppingCart': 'shoppingCart',
+    'social-Media': 'social-Media',
+    'spreadSheets': 'spreadSheets',
+    'text-Editor':'text-Editor',
+    'translate':'translate',
+    'virtual-Scrolling': 'virtual-Scrolling',
+  },
+  Authentication: {
+    'forgot': 'forgot',
+    'login': 'login',
+    'register': 'register',
 
   },
-  BasicComponents: {
-              'accordian': 'accordian',
-              'breadcrumb': 'breadcrumb',
-              'carousel': 'carousel',
-              'dialog': 'dialog',
-              'drag-Drop':'drag-Drop',
-              'dropdown': 'dropdown',
-              'dualslider': 'dualslider',
-              'LazyLoading':'LazyLoading',
-              // 'loaders':'loaders',
-              'map': 'map',
-             'menu': 'menu',
-             'messagebox': 'messagebox',
-             'navigation': 'navigation',
-             'notification': 'notification',
-             'progressbar': 'progressbar',
-             'range':'range',
-              'sliders': 'sliders',
-             'spinner': 'spinner',
-             'switch': 'switch',
-            'tabs': 'tabs',
-                'toast': 'toast',
-               'tooltip': 'tooltip',
-                 'video': 'video',
-},
-Forms:{
-            'autocomplete': 'autocomplete',
-              'date-Picker': 'date-Picker',
-         'formValidations':{'template-Driven-Forms':'template-Driven-Forms','reactive-Forms':'reactive-Forms'},
-              'file-Upload':'file-Upload',
-              'time-Picker': 'time-Picker',
-              'search-Field':'search-Field',
-                 'stepper':'stepper'
+  'Basic - Components': {
+    'accordian': 'accordian',
+    'breadcrumb': 'breadcrumb',
+    'calendar': 'calendar',
+    'carousel': 'carousel',
+    'dialog': 'dialog',
+    'drag-Drop': 'drag-Drop',
+    'dropdown': 'dropdown',
+    'dualslider': 'dualslider',
+    'file-Upload':'file-Upload',
+    'lazy-Loading': 'lazy-Loading',
+    // 'loaders':'loaders',
+    'map': 'map',
+    'menu': 'menu',
+    'messagebox': 'messagebox',
+    'navigation': 'navigation',
+    'notification': 'notification',
+    'progressbar': 'progressbar',
+    'range': 'range',
+    'search-Field':'search-Field',
+    'sliders': 'sliders',
+    'spinner': 'spinner',
+    'switch': 'switch',
+    'tabs': 'tabs',
+    'toast': 'toast',
+    'tooltip': 'tooltip',
+    'video': 'video',
+  },
+  Forms: {
+    'autocomplete': 'autocomplete',
+    'date-Picker': 'date-Picker',
+    'feedback-Forms': 'feedback-Forms',
+    'form-Validations': { 'template-Driven-Forms': 'template-Driven-Forms', 'reactive-Forms': 'reactive-Forms' },
+    
+    'search-Field': 'search-Field',
+    'stepper': 'stepper',
+    'survay-Forms': 'survay-Forms',
+    'time-Picker': 'time-Picker',
 
-},
-Tables:{
-                   'CRUD-Table':'CRUD-Table',
-                     'datagrid':'datagrid',
-                  'filter-Table':'filter-Table',
-                         'grid':'grid',
-                   'pagination-Table':'pagination-Table',
-                  'pivot-Table':'pivot-Table',
-                'sortable-Table':'sortable-Table',
-            'table-Inline-Edit':'table-Inline-Edit',
-          },
+  },
+  Tables: {
+    'CRUD-Table': 'CRUD-Table',
+    'datagrid': 'datagrid',
+    'filter-Table': 'filter-Table',
+    'grid': 'grid',
+    'pagination': 'pagination',
+    'pivot-Table': 'pivot-Table',
+    'sortable-Table': 'sortable-Table',
+    'table-Inline-Edit': 'table-Inline-Edit',
+  },
 
 
- // 'angular-Bootstrap':{'bootstrap-accordian':'bootstrap-accordian'}
+  // 'angular-Bootstrap':{'bootstrap-accordian':'bootstrap-accordian'}
 });
 
 /**
@@ -120,7 +126,7 @@ export class FileDatabase {
     // Parse the string to json object.
     const dataObject = JSON.parse(TREE_DATA);
 
-    console.log('This is Array : '+ dataObject);
+    console.log('This is Array : ' + dataObject);
     // Build the tree nodes from Json object. The result is a list of `FileNode` with nested
     //     file node as children.
     const data = this.buildFileTree(dataObject, 0)
@@ -164,7 +170,7 @@ export class ESideNavComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
   searchInput: string = "";
   sideNavIcons: any = {
-    "minusSquare" :"fa fa-code"
+    "minusSquare": "fa fa-code"
   }
 
   @ViewChild('sidenav') sidenav: MatSidenav;
@@ -177,9 +183,9 @@ export class ESideNavComponent implements OnInit, OnDestroy {
   treeControl: FlatTreeControl<FileFlatNode>;
   treeFlattener: MatTreeFlattener<FileNode, FileFlatNode>;
   dataSource: MatTreeFlatDataSource<FileNode, FileFlatNode>;
-  activeUrl:any;
-  listItems:any =ComponentList;
-  autofocusElement:any;
+  activeUrl: any;
+  listItems: any = ComponentList;
+  autofocusElement: any;
   constructor(
     private database: FileDatabase,
     media: MediaMatcher,
@@ -195,7 +201,7 @@ export class ESideNavComponent implements OnInit, OnDestroy {
 
     this.database.dataChange.subscribe(data => {
       this.dataSource.data = data;
-        this.dataSource.data.sort();
+      this.dataSource.data.sort();
     });
 
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -205,11 +211,11 @@ export class ESideNavComponent implements OnInit, OnDestroy {
     this._ActivatedRoute.url.subscribe(() => {
       console.log(this._ActivatedRoute.snapshot.children);
       this.router.events.subscribe(event => {
-        if(event instanceof NavigationStart) {
-            this.activeUrl = event.url.replace('/', '');
-            console.log(this.activeUrl)
-            this.autofocusElement = this.activeUrl
-            console.log('This is Active Url : '+ this.autofocusElement+ "This is Components list : "+ this.listItems)
+        if (event instanceof NavigationStart) {
+          this.activeUrl = event.url.replace('/', '');
+          console.log(this.activeUrl)
+          this.autofocusElement = this.activeUrl
+          console.log('This is Active Url : ' + this.autofocusElement + "This is Components list : " + this.listItems)
         }
       })
     });
@@ -218,7 +224,7 @@ export class ESideNavComponent implements OnInit, OnDestroy {
     if (window.innerWidth < 768) {
       this.navMode = 'over';
       console.log(this.navMode)
-      console.log('This is Components List : '+ this.listItems);
+      console.log('This is Components List : ' + this.listItems);
 
     }
 
