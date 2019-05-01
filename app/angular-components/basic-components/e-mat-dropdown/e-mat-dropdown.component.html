@@ -1,0 +1,35 @@
+<!--Component-->
+<div>
+  <mat-form-field>
+    <mat-select placeholder="Favorite food">
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<!--<Component>-->
+
+
+<!-- Description -->
+<h4 class="m-t-15">Description</h4>
+<mat-card class="m-t-15">
+  <p>
+      Dropdown is simply a drop-down menu embedding additional links or content. It allows you to construct much more advanced navigation and link categorization.
+  </p>
+
+</mat-card>
+<!-- /Description -->
+
+<!-- code Walk Through -->
+
+<h4 class="m-t-15">Setup</h4>
+<mat-card class="m-t-15">
+  <p>Step 1</p>
+  <p class="docs-api-module-import">
+    <code>    
+          import &#123; MatSelectModule &#125; from '@angular/material/select';
+    </code>
+  </p>
+</mat-card>
+<!-- / code Walk Through -->

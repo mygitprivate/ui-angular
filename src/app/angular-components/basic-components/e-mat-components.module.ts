@@ -12,9 +12,9 @@ import {
   EMatMenuComponent, EMatSliderComponent,
   EMatCarouselComponent, EMatBreadcrumbComponent,
   EMatMessageboxComponent, EMatNavigationComponent,
-  ELayoutComponent,EMatAccordianComponent, EMatNotificationComponent,
-  EMatMapComponent,EMatVideoComponent,EMatDropdownComponent,EMatAutocompleteComponent,
-  ECalenderComponent,EDualRangeSliderComponent,
+  ELayoutComponent, EMatAccordianComponent, EMatNotificationComponent,
+  EMatMapComponent, EMatVideoComponent, EMatDropdownComponent, EMatAutocompleteComponent,
+  ECalenderComponent, EDualRangeSliderComponent,
   EMatReactiveFormsComponent,
   EMatTemplateDrivenFormsComponent,
   EMatPaginationComponent,
@@ -31,13 +31,9 @@ import {
   EMatIconsComponent,
   EMatRegisterComponent,
   EMatForgotComponent,
-  EMatCrudTableComponent,
   EMatDragDropComponent,
   EMatVirtualScrollComponent,
-  EMatLanguageSwitchComponent,
-  PaypalgatewayComponent
-  
-  // RouteGuardComponent
+  EMatLanguageSwitchComponent
 } from './index';
 import * as SurveyEditor from 'surveyjs-editor';
 import * as Survey from 'survey-angular';
@@ -89,14 +85,10 @@ import {EventSesrvice} from './e-calender/events.service';
     EMatIconsComponent,
    EMatRegisterComponent,
    EMatForgotComponent,
-   EMatCrudTableComponent,
    EMatDragDropComponent,
    EMatVirtualScrollComponent,
-   EMatLanguageSwitchComponent,
-   PaypalgatewayComponent
-    
-    // RouteGuardComponent
-    ],
+   EMatLanguageSwitchComponent
+  ],
     entryComponents: [EMatDialogComponent, EMatDialogPopupComponent],
 
 })

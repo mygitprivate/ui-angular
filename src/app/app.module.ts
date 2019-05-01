@@ -15,12 +15,9 @@ import {MyNavComponent} from './my-nav/my-nav.component';
 import { NguiAutoCompleteModule } from '@ngui/auto-complete';
 import { RouteGuardModule } from './angular-components/basic-components/route-guard/route-guard.module';
 import { NgxGalleryModule } from 'ngx-gallery';
-// import { NgxPayPalModule } from 'ngx-paypal';
-import { NgxPayPalModule } from 'ngx-paypal';
-import {ScrollingModule,ScrollDispatchModule} from '@angular/cdk/scrolling';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { environment } from '../environments/environment';
-// import {  I18nComponent } from './angular-components/basic-components/e-mat-language-switch/i18n/i18n.component';
-//import { El10nModule } from './e-l10n/el10n.module';
+
 
 @NgModule({
   declarations: [
@@ -40,16 +37,10 @@ import { environment } from '../environments/environment';
     RouteGuardModule,
     NgxGalleryModule,
     PersistenceModule,
-    ScrollDispatchModule,
-    ScrollingModule,
-   // LocalizationModule.forRoot(l10nConfig),
-   // LocaleSeoModule.forRoot(),
-   // LocaleValidationModule.forRoot(),
-    NgxPayPalModule,
-//El10nModule
+    ScrollingModule
   ],
   providers: [
-    
+
 ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
