@@ -126,12 +126,12 @@ export class FileDatabase {
     // Parse the string to json object.
     const dataObject = JSON.parse(TREE_DATA);
 
-    console.log('This is Array : ' + dataObject);
+    // console.log('This is Array : ' + dataObject);
     // Build the tree nodes from Json object. The result is a list of `FileNode` with nested
     //     file node as children.
     const data = this.buildFileTree(dataObject, 0)
 
-    console.log(data);
+    // console.log(data);
 
     // Notify the change.
     this.dataChange.next(data);
@@ -194,7 +194,7 @@ export class ESideNavComponent implements OnInit, OnDestroy {
     private _ActivatedRoute: ActivatedRoute
   ) {
 
-    console.log(this.listItems);
+    // console.log(this.listItems);
     this.treeFlattener = new MatTreeFlattener(this.transformer, this._getLevel, this._isExpandable, this._getChildren);
     this.treeControl = new FlatTreeControl<FileFlatNode>(this._getLevel, this._isExpandable);
     this.dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
@@ -209,13 +209,13 @@ export class ESideNavComponent implements OnInit, OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
 
     this._ActivatedRoute.url.subscribe(() => {
-      console.log(this._ActivatedRoute.snapshot.children);
+      // console.log(this._ActivatedRoute.snapshot.children);
       this.router.events.subscribe(event => {
         if (event instanceof NavigationStart) {
           this.activeUrl = event.url.replace('/', '');
-          console.log(this.activeUrl)
+          // console.log(this.activeUrl)
           this.autofocusElement = this.activeUrl
-          console.log('This is Active Url : ' + this.autofocusElement + "This is Components list : " + this.listItems)
+          // console.log('This is Active Url : ' + this.autofocusElement + "This is Components list : " + this.listItems)
         }
       })
     });
@@ -223,8 +223,8 @@ export class ESideNavComponent implements OnInit, OnDestroy {
   ngOnInit() {
     if (window.innerWidth < 768) {
       this.navMode = 'over';
-      console.log(this.navMode)
-      console.log('This is Components List : ' + this.listItems);
+      // console.log(this.navMode)
+      // console.log('This is Components List : ' + this.listItems);
 
     }
 
@@ -235,7 +235,7 @@ export class ESideNavComponent implements OnInit, OnDestroy {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     if (event.target.innerWidth < 768) {
-      console.log(event)
+      // console.log(event)
       this.navMode = 'over';
       if (this.sidenav) {
         this.sidenav.close();

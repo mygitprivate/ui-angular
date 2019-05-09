@@ -15,7 +15,7 @@ export class EMatCarouselComponent implements OnInit {
   ngOnInit() {
     this.code = Code;
     this.eShareDataService.pushCode(this.code);
-    console.log(this.code)
+    // console.log(this.code)
   }
 
   slides = [
@@ -35,6 +35,6 @@ export class EMatCarouselComponent implements OnInit {
   }
 
   afterChange(e) {
-    console.log('afterChange');
+    // console.log('afterChange');
   }
 }

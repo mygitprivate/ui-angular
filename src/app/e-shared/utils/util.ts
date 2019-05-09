@@ -124,7 +124,7 @@ export class Util {
             val = val.toString();
             returnVal = val.trim() == "" ? true : false;
         } else {
-            console.log("is Empty else place");
+            // console.log("is Empty else place");
         }
         return returnVal;
     }

@@ -49,7 +49,7 @@ export class AppLangComponent implements OnInit, OnDestroy {
 
         this.translation.translationError.subscribe((error) => {
             if (error) {
-                console.log(error);
+                // console.log(error);
             }
         });
     }

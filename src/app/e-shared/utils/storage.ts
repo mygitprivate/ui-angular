@@ -91,7 +91,7 @@ export class Storage {
         }
     }
     static getMenuList(): any {
-        console.log(this.getSessionItem('menu'));
+        // console.log(this.getSessionItem('menu'));
         return this.getSessionItem('menu');
     }
 

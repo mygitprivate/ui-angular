@@ -81,7 +81,7 @@ export const Code = {
     
             this.translation.translationError.subscribe((error) => {
                 if (error) {
-                    console.log(error);
+                    // console.log(error);
                 }
             });
         }

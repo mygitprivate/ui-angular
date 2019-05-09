@@ -2,14 +2,14 @@ import { Routes, RouterModule } from "@angular/router";
 import { EDashboardComponent, ELayoutComponent } from './e-modules/index';
 import { ModuleWithProviders } from "@angular/core";
 
-//import { ETranslationComponent } from './e-translation/e-translation.component';
-//import { AppLangComponent } from './e-l10n/applang.component';
+import { ETranslationComponent } from './e-translation/e-translation.component';
+import { AppLangComponent } from './e-l10n/applang.component';
 import {
   EMatDatePickerComponent, EMatTimepickerComponent,
   EMatSpinnerComponent, EMatTabsComponent,
   EMatTooltipComponent, EMatProgressbarComponent,
   EMatSwitchComponent, EMatToastComponent,
-  EMatDialogComponent,
+  EMatDialogPopupComponent, EMatDialogComponent,
   EMatMenuComponent, EMatSliderComponent,
   EMatCarouselComponent, EMatBreadcrumbComponent,
   EMatMessageboxComponent, EMatNavigationComponent,EMatAutocompleteComponent,EMatAccordianComponent, EMatNotificationComponent,
@@ -21,10 +21,10 @@ import {
   EMatSurveyComponent,EMatDatagridComponent,
   EMatSortTableComponent,EMatStepperComponent,
   EMatIconsComponent, EMatRegisterComponent,
-  EMatForgotComponent,
-  EMatDragDropComponent,EMatVirtualScrollComponent
+  EMatForgotComponent, EMatCrudTableComponent,
+  EMatDragDropComponent,EMatVirtualScrollComponent, 
 } from './angular-components/basic-components/index';
-
+import { El10nModule } from './e-l10n/el10n.module';
 
 
 const routes: Routes = [
@@ -270,17 +270,31 @@ const routes: Routes = [
 { path: 'forgot', component: ELayoutComponent,children:[
    {path: '', component:EMatForgotComponent , outlet: 'basic', data: { name: 'Forgot Form', type : 'Materials' }}
 ]},
-
+{ path: 'CRUD-Table', component: ELayoutComponent,children:[
+   {path: '', component:EMatCrudTableComponent , outlet: 'basic', data: { name: 'CRUD In Table', type : 'Materials' }}
+]},
 { path: 'drag-Drop', component: ELayoutComponent,children:[
    {path: '', component:EMatDragDropComponent , outlet: 'basic', data: { name: 'Drag And Drop', type : 'Materials' }}
 ]},
 { path: 'virtual-Scrolling', component: ELayoutComponent,children:[
    {path: '', component:EMatVirtualScrollComponent , outlet: 'basic', data: { name: 'Virtual Scrolling', type : 'Materials' }}
 ]},
+// { path: 'language-Switch', component: ELayoutComponent,children:[
+//   {path: '', component:EMatLanguageSwitchComponent , outlet: 'basic', data: { name: 'Language Switch', type : 'Materials' }}
+// ]},
+ 
+{ path: 'language-Switch', component: ELayoutComponent,children:[
+  {path: '', component:AppLangComponent , outlet: 'basic', data: { name: 'Payment Gateway', type : 'Materials' }}
+]},
+ 
 
+// {path:'list', loadChildren:'./list/list.module#ListModule'},
+// { path: 'list', loadChildren: './angular-components' }, 
   { path: 'dashboard', component: EDashboardComponent },
   { path: 'layout', component: ELayoutComponent },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'translate', component: ETranslationComponent },
+  
 ];
 
 export const appRoutes: ModuleWithProviders = RouterModule.forRoot(routes);

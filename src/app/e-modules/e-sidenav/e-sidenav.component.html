@@ -12,12 +12,15 @@
   </span>
   <span class="example-spacer">
 
-    <mat-form-field class="example-full-width" style="padding-left:20px; width:95%">
-      <input type="text" placeholder="Search for Components"aria-label="Number" matInput [matAutocomplete]="auto">
+    <mat-form-field class="example-full-width" style="padding-left:20px; width:95%;">
+      <input type="text" placeholder="Search for Components"aria-label="Number" matInput [matAutocomplete]="auto" style="text-transform: capitalize">
       <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option *ngFor="let option of listItems" [value]="option.link">
-       <a routerLink="{{'/'+option.link}}" style="display:block; width:100%;">{{option.link}}</a>
-        </mat-option>
+        <div *ngFor="let option of listItems">
+            <mat-option *ngFor="let itemVal of option.cards " [value]="itemVal.name">
+                <a routerLink="{{'/'+itemVal.link}}" style="display:block; width:100%; text-transform: capitalize">{{itemVal.name}}</a>
+            </mat-option>
+        </div>
+        <!--  -->
       </mat-autocomplete>
     </mat-form-field>
 

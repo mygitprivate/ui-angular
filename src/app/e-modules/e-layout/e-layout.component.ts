@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router,NavigationStart } from '@angular/router';
-import { memoize } from 'lodash-decorators';
 import { Subscription } from 'rxjs';
-import { FormArray, FormGroup, FormBuilder } from '@angular/forms';
+import {  FormBuilder } from '@angular/forms';
 import { EShareDataService } from '../../e-shared/e-sharedata.service';
 import { Code } from './code'
 @Component({
@@ -38,7 +37,7 @@ export class ELayoutComponent implements OnInit {
               this.activeUrl = event.url.replace('/', '');
 
               this.focusElement = this.activeUrl;
-              console.log(this.activeUrl+' : This is Focus Element');
+              // console.log(this.activeUrl+' : This is Focus Element');
               // this.focusElement.focus();
 
           }

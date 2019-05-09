@@ -20,7 +20,7 @@ export class EDualRangeSliderComponent implements OnInit {
   ngOnInit() {
     this.code = Code;
     this.eShareDataService.pushCode(this.code);
-    console.log(this.code)
+    // console.log(this.code)
   }
   
   myOnFinish(event) {

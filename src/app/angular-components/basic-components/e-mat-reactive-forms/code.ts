@@ -538,19 +538,16 @@ constructor(private fb: FormBuilder, private eShareDataService : EShareDataServi
 ngOnInit() {
 }
 onFormSubmitBasicDetails(form) {
-    console.log(form);
     this.isbasicDetailsForm = false;
     this.isaddressDetailsForm = true;
     this.isprofessionalDetailsForm = false;
 }
 onFormSubmitAddressDetails(form) {
-    console.log(form);
     this.isbasicDetailsForm = false;
     this.isaddressDetailsForm = false;
     this.isprofessionalDetailsForm = true;
 }
 onFormSubmitProfessionalDetails(form) {
-    console.log(form);
     this.isbasicDetailsForm = false;
     this.isaddressDetailsForm = false;
 }

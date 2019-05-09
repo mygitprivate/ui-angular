@@ -43,7 +43,7 @@ export {EMatCrudTableComponent} from "./e-mat-crud-table/e-mat-crud-table.compon
 export {EMatDragDropComponent} from "./e-mat-drag-drop/e-mat-drag-drop.component";
 export {EMatVirtualScrollComponent} from "./e-mat-virtual-scroll/e-mat-virtual-scroll.component";
 export {EMatLanguageSwitchComponent} from "./e-mat-language-switch/e-mat-language-switch.component";
-export {PaypalgatewayComponent} from './e-mat-paymentgateway.component/e-mat-PaypalgatewayComponent.component';
+ 
 // export {RadiobuttonComponent} from './e-mat-survey-forms/e-mt-radio.component';
 // export {DynamicFieldDirective} from './e-mat-survey-forms/dynamic-field.directive';
 // export { RouteGuardComponent } from './route-guard/route-guard.component';

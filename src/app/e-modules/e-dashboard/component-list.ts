@@ -25,7 +25,7 @@ export const ComponentList = [
         "id": 'image-Gallery',
         "name": "image-Gallery",
         "link": "image-Gallery",
-        "icon": "image-Gallery"
+        "icon": "image-Guallery"
       },
       {
         "id": 'language-Switch',

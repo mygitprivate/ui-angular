@@ -46,7 +46,7 @@ export const Code = {
             }
 
             afterChange(e) {
-                console.log('afterChange');
+                // console.log('afterChange');
             }
         }
         `,

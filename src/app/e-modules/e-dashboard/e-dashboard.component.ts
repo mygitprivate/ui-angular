@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { memoize } from 'lodash-decorators';
-import { FormArray, FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ComponentList } from './component-list';
 import { EAnimationService } from '../../e-shared/e-animation.service';
 import { Router } from '@angular/router';
@@ -11,7 +9,7 @@ import { Router } from '@angular/router';
   host: EAnimationService.host,
   animations: EAnimationService.page
 })
-export class EDashboardComponent implements OnInit {
+export class EDashboardComponent implements OnInit, OnDestroy {
   componentName: string = "";
   list: any = [];
   // colorCodes: any = ["#333","#333","#333","#333","#333","#333","#333","#333","#333","#333","#333","#333","#333","#333","#333","#333","#333","#333","#333","#333","#333","#333","#333", ]
@@ -40,10 +38,12 @@ export class EDashboardComponent implements OnInit {
     //     }
     //   }
     // }
-    console.log(this.list);
+    // console.log(this.list);
   }
   openComponent(item: any) {
     this.router.navigate([item.link]);
   }
-
+ngOnDestroy(){
+  this.list = [];
+}
 }
