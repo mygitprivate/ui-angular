@@ -1,0 +1,36 @@
+<!--component-->
+<p>Display event : {{displayEvent | json}}</p>
+<div *ngIf="calendarOptions">
+    <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="eventClick($event.detail)" (eventDrop)="updateEvent($event.detail)"
+        (eventResize)="updateEvent($event.detail)" (clickButton)="clickButton($event.detail)"></ng-fullcalendar>
+</div>
+<!-- <component> -->
+
+<!-- Description -->
+<h4 class="m-t-15">Description</h4>
+<mat-card class="m-t-15">
+    <p>
+      
+    </p>
+
+</mat-card>
+<!-- /Description -->
+
+<!-- code Walk Through -->
+
+<h4 class="m-t-15">Setup</h4>
+<mat-card class="m-t-15">
+    <p>Step 1</p>
+    <p class="docs-api-module-import">
+        <code>
+            npm i fullcalendar
+        </code>
+    </p>
+    <p>Step 2</p>
+    <p class="docs-api-module-import">
+        <code>    
+            import &#123; FullCalendarModule &#125; from 'ng-fullcalendar';
+        </code>
+    </p>
+</mat-card>
+    <!-- / code Walk Through -->

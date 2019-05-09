@@ -1,0 +1,247 @@
+<mat-card>
+    <!-- Title of an Card -->
+    <mat-card-title>
+        Registration Form
+    </mat-card-title>
+
+    <!-- Actual content starts from here -->
+    <mat-card-content>
+        <form [formGroup]="basicDetailsForm" (ngSubmit)="onFormSubmitBasicDetails(basicDetailsForm.value)" *ngIf="isbasicDetailsForm">
+            <table>
+                <tr>
+                    <td>
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="FirstName" matInput placeholder="First Name">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!basicDetailsForm.get('FirstName').valid && basicDetailsForm.get('FirstName').touched">Please enter First Name !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="LastName" matInput placeholder="Last Name">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!basicDetailsForm.get('LastName').valid && basicDetailsForm.get('LastName').touched">Please enter Last Name !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="Email" matInput placeholder="Email">
+                            <mat-hint>use like : demo@demo.com</mat-hint>
+                            <mat-error>
+                                <span *ngIf="!basicDetailsForm.get('Email').valid && basicDetailsForm.get('Email').touched">Enter proper Email !!!</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="PhoneNumber" matInput placeholder="Phone Number" (keypress)="numberOnly($event)">
+                            <mat-error>
+                                <span *ngIf="!basicDetailsForm.get('PhoneNumber').valid && basicDetailsForm.get('PhoneNumber').touched">Enter Valid Phone Number !!!</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <span>Gender</span>
+                        <br>
+                        <br>
+                        <mat-radio-group formControlName="Gender">
+                            <mat-radio-button value="Male">Male</mat-radio-button>
+                            <mat-radio-button value="Female">Female</mat-radio-button>
+                        </mat-radio-group>
+                        <mat-error>
+                            <span *ngIf="!basicDetailsForm.get('Gender').valid && basicDetailsForm.get('Gender').touched">Please select any gender !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="content-center">
+                        <button mat-raised-button color="accent" [disabled]="!basicDetailsForm.valid">Next</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+
+        <form [formGroup]="addressDetailsForm" (ngSubmit)="onFormSubmitAddressDetails(addressDetailsForm.value)" *ngIf="basicDetailsForm.valid && isaddressDetailsForm">
+            <table>
+                <tr>
+                    <td>
+                        <mat-form-field class="demo-full-width">
+                            <textarea formControlName="Address" matInput placeholder="Address" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!addressDetailsForm.get('Address').valid && addressDetailsForm.get('Address').touched">Please enter Address !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="DoorNo" matInput placeholder="Enter your Door No.">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!addressDetailsForm.get('DoorNo').valid && addressDetailsForm.get('DoorNo').touched">Please enter Door no !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="Street" matInput placeholder="Enter your Street">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!addressDetailsForm.get('Street').valid && addressDetailsForm.get('Street').touched">Please enter Street!!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="City" matInput placeholder="Enter your City">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!addressDetailsForm.get('City').valid && addressDetailsForm.get('City').touched">Please enter City !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="demo-full-width">
+                            <mat-select placeholder="Enter your State" formControlName="State" name="State">
+                                <mat-option *ngFor="let state of states" [value]="state">
+                                  {{state}}
+                                </mat-option>
+                              </mat-select>
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!addressDetailsForm.get('State').valid && addressDetailsForm.get('State').touched">Please enter State !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="PinCode" matInput placeholder="Enter your PinCode">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!addressDetailsForm.get('PinCode').valid && addressDetailsForm.get('PinCode').touched">Please enter PinCode !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <mat-select placeholder="Enter your Country" formControlName="Country" name="country">
+                              <mat-option *ngFor="let country of countries" [value]="country">
+                                {{country}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!addressDetailsForm.get('Country').valid && addressDetailsForm.get('Country').touched">Please enter Country !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="content-center">
+                        <button mat-raised-button color="accent" [disabled]="!addressDetailsForm.valid">Next</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <form [formGroup]="professionalDetailsForm" (ngSubmit)="onFormSubmitProfessionalDetails(professionalDetailsForm.value)" *ngIf="addressDetailsForm.valid && isprofessionalDetailsForm">
+            <table>
+                <tr>
+                    <td>
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="EmployeId" matInput placeholder="Enter your EmployeId">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!professionalDetailsForm.get('EmployeId').valid && professionalDetailsForm.get('EmployeId').touched">Please enter EmployeId !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="Department" matInput placeholder="Enter your Department">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!professionalDetailsForm.get('Department').valid && professionalDetailsForm.get('Department').touched">Please enter Department !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="Role" matInput placeholder="Enter your Role">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!professionalDetailsForm.get('Role').valid && professionalDetailsForm.get('Role').touched">Please enter Role!!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="password" matInput placeholder="Enter your password">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!professionalDetailsForm.get('password').valid && professionalDetailsForm.get('password').touched">Please enter passoword !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="demo-full-width">
+                            <input formControlName="confirmPassword" matInput placeholder="Enter your confirmPassword">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!professionalDetailsForm.get('confirmPassword').valid && professionalDetailsForm.get('confirmPassword').touched">Please enter confirmPassword !!!</span>
+                        </mat-error>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="content-center">
+                        <button mat-raised-button color="accent" [disabled]="!professionalDetailsForm.valid">Next</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </mat-card-content>
+</mat-card>
+<!-- Description -->
+<h4 class="m-t-15">Description</h4>
+<mat-card class="m-t-15">
+  <p>
+    It is the process used by form dialogs to alert users of errors in their submissions.
+  <!-- <p>Reactive forms provide a model-driven approach to handling form inputs whose values change over time. </p> -->
+  </p>
+
+</mat-card>
+<!-- /Description -->
+
+<!-- code Walk Through -->
+
+<h4 class="m-t-15">Setup</h4>
+<mat-card class="m-t-15">
+  <p>Step 1</p>
+  <p class="docs-api-module-import">
+    <code>
+          import &#123; ReactiveFormsModule  &#125; from '@angular/forms';
+    </code>
+  </p>
+</mat-card>
